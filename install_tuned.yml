@@ -1,0 +1,10 @@
+---
+- name: install tuned
+  hosts: all
+  become: true
+  tasks:
+
+    - name: install tuned
+      yum:
+        name: tuned
+        state: latest

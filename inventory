@@ -1,0 +1,8 @@
+ansible-node1
+ansible-node2
+
+[dev]
+ansible-node1
+
+[prod]
+ansible-node2
