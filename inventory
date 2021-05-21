@@ -1,8 +1,9 @@
-ansible-node1
-ansible-node2
+#Example inventory file
+#ansible-node1
+#ansible-node2
 
-[dev]
-ansible-node1
+#[dev]
+#ansible-node1
 
-[prod]
-ansible-node2
+#[prod]
+#ansible-node2
