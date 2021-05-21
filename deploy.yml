@@ -1,0 +1,26 @@
+---
+- name: Configure remote nodes with ansible settings
+  hosts: all
+  remote_user: root
+  vars_files:
+    - vars.yml
+  tasks:
+
+    - name: add {{ deploy_remote_user }} to hosts and ensure part of wheel group
+      user:
+        name: "{{ deploy_remote_user }}"
+        state: present
+        groups: wheel
+        append: yes
+
+    - name: copy ssh files to remote hosts
+      authorized_key:
+        user: "{{ deploy_remote_user }}"
+        state: present
+        key: "{{ lookup('file', item) }}"
+      with_fileglob: "/home/{{ deploy_remote_user }}/.ssh/*.pub"
+
+    - name: allow passwordless elevation
+      copy:
+        content: '%wheel ALL=(ALL) NOPASSWD: ALL'
+        dest: /etc/sudoers.d/wheel
