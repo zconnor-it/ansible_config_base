@@ -1,5 +1,6 @@
 #!/bin/bash
 # Read input from user
+yum install -y ansible
 echo "Enter the name of the user you would like to create and use to remote into other systems"
 read REMOTE_USER
 echo "Enter a passphrase for the ssh key. If you would like to leave it blank, press enter"
