@@ -1,6 +1,9 @@
 #!/bin/bash
-# Read input from user
+# Enable and install ansible
+subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
 yum install -y ansible
+
+# Read input from user
 echo "Enter the name of the user you would like to create and use to remote into other systems"
 read REMOTE_USER
 echo "Enter a passphrase for the ssh key. If you would like to leave it blank, press enter"
